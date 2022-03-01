@@ -1,6 +1,9 @@
 # Stock Management
 
+ **stock.json is in assets director for reference**
+
       Uncommment methods in Stock Service and complete them
+
 
   **Add Stock**
     **Use Reactive Forms ,Create validations for below**
