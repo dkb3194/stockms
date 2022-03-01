@@ -1,27 +1,22 @@
-# StockMs
+# Stock Management
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.1.
+      Uncommment methods in Stock Service and complete them
 
-## Development server
+  **Add Stock**
+    **Use Reactive Forms ,Create validations for below**
+      stock price should be positive
+      
+      quantity should be positive and max 100 can be added at a time
+      
+      name should not be empty or null and max 10 letters
+    
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ **Display Stock**
+  
+      Display Stock, Displays stock details based on stock id in route
+  
+ **List Stocks**
+      Lists all stocks , only render stock id and stock name, along with link to
+  
+      see complete details of stock, route to display stock
+  
