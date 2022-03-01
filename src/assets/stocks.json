@@ -1,0 +1,26 @@
+{
+  "stocks": [
+    {
+      "id": "1",
+      "stockName": "samsung",
+      "quantity": 25,
+      "price": 10000
+    },
+    
+   {
+      "id": "2",
+      "stockName": "mototolla",
+      "quantity": 12,
+      "price": 20000
+    },
+    
+    
+     {
+      "id": "3",
+      "stockName": "htc",
+      "quantity": 10,
+      "price": 30000
+    }
+    
+  ]
+}
