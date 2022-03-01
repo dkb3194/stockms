@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StockService } from '../services/stock.service';
 
 @Component({
   selector: 'app-list-stocks',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListStocksComponent implements OnInit {
 
-  constructor() { }
+  listStocks = []
+  constructor(
+    private stockService: StockService
+  ) { }
 
   ngOnInit(): void {
+    this.listStocks = this.stockService.stockArr;
   }
 
 }

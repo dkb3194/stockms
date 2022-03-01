@@ -1,13 +1,13 @@
 <h1>List Stocks</h1>
 
 <ul class="list-group">
-  <li class="list-group-item" id="keep stock id here">
-    <span id="stockId"><!--stock id --> </span>
+  <li *ngFor="let item of listStocks" class="list-group-item" id="keep stock id here">
+    <span id="stockId">{{item.id}}</span>
 
-    <span id="stockName"> <!--stock name--> </span>
-
+    <span id="stockName"> {{item.stockName}}</span>
+    
     <!--link that will render complate info of stock by id : 
         hint: pass stock id in routerlink as parameter to route of stock details component-->
-    <a>See more</a>
+    <a [routerLink]="['/displaystock', item.id]" >See more</a>
   </li>
 </ul>

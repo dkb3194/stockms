@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { StockService } from '../services/stock.service';
 
 
 /**
@@ -9,15 +11,49 @@ import { Component, OnInit } from '@angular/core';
  * name should not be empty or null and max 10 letters   
  */
 @Component({
-  selector: 'app-add-stock',
-  templateUrl: './add-stock.component.html',
-  styleUrls: ['./add-stock.component.css']
+	selector: 'app-add-stock',
+	templateUrl: './add-stock.component.html',
+	styleUrls: ['./add-stock.component.css']
 })
 export class AddStockComponent implements OnInit {
 
-  constructor() { }
+	public form: FormGroup = this.formBuilder.group(
+		{
+			stockName: new FormControl('', [Validators.required, Validators.maxLength(10)]),
+			price : new FormControl('', Validators.required),
+			quantity: new FormControl('', [Validators.required, Validators.max(100)]),
+		},
+	);
 
-  ngOnInit(): void {
-  }
+	constructor(
+		private formBuilder: FormBuilder,
+		private stockService: StockService
+	) { }
+
+	ngOnInit(): void {
+		
+	}
+
+	resetForm(){
+		this.form.get('stockName').setValue('')
+		this.form.get('quantity').setValue('')
+		this.form.get('price').setValue('')
+	}
+
+	submit() {
+		if (this.form.valid) {
+			console.log(this.form.value)
+			this.stockService.add(this.form.value);
+			this.resetForm()
+			alert('Stock Added');
+		}
+	}
+
+	// checking fieds are valid or not
+	isFieldInvalid(field: string) {
+		return (
+			(this.form.get(field).invalid)
+		);
+	}
 
 }

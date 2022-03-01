@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { StockService } from '../services/stock.service';
+
 
 
 /**
@@ -11,9 +14,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayStockComponent implements OnInit {
 
-  constructor() { }
+  stockDetails: any = {}
+  constructor(
+    private route: ActivatedRoute,
+    private stockService: StockService
+  ) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe((value)=>{
+      console.log(value)
+      let stockId = value['stockId']
+      this.stockDetails = this.stockService.fetchStockById(stockId)
+      console.log(this.stockDetails);
+      
+    })
+    console.log(this.route.params.subscribe)
   }
 
 }

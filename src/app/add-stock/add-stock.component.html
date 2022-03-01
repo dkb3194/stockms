@@ -1,27 +1,27 @@
 <h1>Add Stock</h1>
 
-<form>
+<form [formGroup]="form" (ngSubmit)="submit()">
   <div class="form-group">
     <label for="stockName">Stock Name</label>
-    <input name="stockName" id="stockName" class="form-control" />
-    <small id="stockNameErr" class="text-danger"> <!--display validation err--> </small>
+    <input formControlName="stockName" name="stockName" id="stockName" class="form-control" />
+    <small *ngIf="isFieldInvalid('stockName')" id="stockNameErr" class="text-danger"> Please Enter Stock Name </small>
   </div>
 
   <div class="form-group">
     <label for="price">Price</label>
-    <input name="price" id="price" class="form-control" />
-    <small id="stockPriceErr" class="text-danger"> <!--display validation err--> </small>
+    <input formControlName="price" type="number" name="price" id="price" class="form-control" />
+    <small *ngIf="isFieldInvalid('price')" id="stockPriceErr" class="text-danger"> Please Enter Stock Price </small>
 
   </div>
 
   <div class="form-group">
     <label for="quantity">Quantity</label>
-    <input name="quantity" id="quantity" class="form-control" />
-    <small id="stockQuantityErr" class="text-danger"> <!--display validation err--> </small>
+    <input formControlName="quantity" type="number" name="quantity" id="quantity" class="form-control" />
+    <small *ngIf="isFieldInvalid('quantity')" id="stockQuantityErr" class="text-danger"> Please Enter Valid Stock Quantity </small>
 
   </div>
 
-  <button class="btn btn-primary">Add Stock</button>
+  <button type="submit" class="btn btn-primary">Add Stock</button>
 </form>
 
 
